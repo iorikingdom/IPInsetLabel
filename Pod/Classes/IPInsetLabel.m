@@ -27,6 +27,19 @@
 	[self setNeedsLayout];
 }
 
+- (CGSize) sizeThatFits:(CGSize)size {
+    CGSize superSizeThatFits = [super sizeThatFits:size];
+    CGFloat width = superSizeThatFits.width + _insets.left + _insets.right;
+    CGFloat height = superSizeThatFits.height + _insets.top + _insets.bottom;
+    return CGSizeMake(width, height);
+}
+
+- (CGSize) intrinsicContentSize {
+    CGSize superContentSize = [super intrinsicContentSize];
+    CGFloat width = superContentSize.width + _insets.left + _insets.right;
+    CGFloat height = superContentSize.height + _insets.top + _insets.bottom;
+    return CGSizeMake(width, height);
+}
 
 #pragma mark - UIView
 
